@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-lab",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Portfolio personal de desarrollador — Vanilla JS + Vite, Web Components nativos, MVC",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/sync-assets.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "verify": "node scripts/verify-all.mjs"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

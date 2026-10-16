@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "sobreMi": "Sobre mí",
+    "ahora": "Ahora"
+  },
+  "header": {
+    "contactar": "Contactar",
+    "cambiarIdioma": "English",
+    "temaClaro": "Modo claro",
+    "temaOscuro": "Modo oscuro",
+    "altoContraste": "Alto contraste"
+  },
+  "portfolio": {
+    "destacados": "Destacados",
+    "proyectos": "Proyectos",
+    "filtros": "Filtros",
+    "tecnologia": "Tecnología",
+    "anio": "Año",
+    "todas": "Todas",
+    "todos": "Todos",
+    "orden": "Orden",
+    "ordenDesc": "Más recientes primero",
+    "ordenAsc": "Más antiguos primero",
+    "contador": "{n} proyectos",
+    "contadorSingular": "{n} proyecto",
+    "limpiarFiltros": "Limpiar filtros",
+    "vacioGlobalTitulo": "Sin proyectos todavía",
+    "vacioGlobal": "Todavía no hay proyectos que mostrar.",
+    "vacioFiltrosTitulo": "Sin resultados",
+    "vacioFiltros": "Ningún proyecto coincide con los filtros seleccionados.",
+    "errorTitulo": "Error al cargar",
+    "error": "No se han podido cargar los datos. Inténtalo de nuevo más tarde."
+  },
+  "tarjeta": {
+    "destacado": "Destacado",
+    "noDisponible": "No disponible",
+    "verRepositorio": "Ver repositorio",
+    "expandir": "Expandir tarjeta",
+    "colapsar": "Colapsar tarjeta",
+    "expandida": "Tarjeta {nombre} expandida",
+    "colapsada": "Tarjeta {nombre} colapsada"
+  },
+  "contacto": {
+    "asunto": "Contacto desde el portfolio"
+  },
+  "footer": {
+    "navegacion": "Navegación"
+  },
+  "paginacion": {
+    "anterior": "Anterior",
+    "siguiente": "Siguiente",
+    "pagina": "Página {n} de {total}"
+  }
+}

@@ -1,0 +1,404 @@
+/* components.css — estilos de las partes no encapsuladas en shadow DOM. */
+
+/* --- Botones (DESIGN §4) --- */
+.btn-primary,
+.btn-secondary {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--dur-color) var(--ease), border-color var(--dur-color) var(--ease);
+}
+
+.btn-primary {
+  background: var(--btn);
+  color: var(--btn-ink);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-2);
+}
+
+/* --- Chip y píldora (DESIGN §4) --- */
+.chip {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 2px 12px;
+  font-size: 13px;
+}
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+}
+
+/* --- Cabecera --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding: 16px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-inner > * {
+  min-width: 0;
+}
+
+.header-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.header-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.header-name {
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+.header-full {
+  flex-basis: 100%;
+  transition: opacity var(--dur-identity) var(--ease);
+}
+
+.header-titular {
+  margin: 0;
+  font-size: 20px;
+  color: var(--ink-2);
+}
+
+.header-claim {
+  margin: 8px 0;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.05;
+  font-weight: 600;
+  max-width: var(--max-reading);
+}
+
+.header-meta,
+.header-links,
+.header-stack {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.header-links a {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.stack-category {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-right: 8px;
+}
+
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Botones destacados de navegación (R35) */
+.nav-btn {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-btn:hover {
+  background: var(--surface-2);
+}
+
+.nav-btn[aria-current='page'] {
+  background: var(--btn);
+  border-color: var(--btn);
+  color: var(--btn-ink);
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Colapsada: solo imagen, nombre y contacto (R5).
+   Transición de 200ms para la identidad (DESIGN §5).
+   Se usa max-height + opacity en lugar de display:none para permitir la transición. */
+.header-full,
+.header-nav,
+.header-actions [data-action='toggle-lang'],
+.header-actions [data-action='toggle-theme'],
+.header-actions [data-action='toggle-hc'] {
+  transition: opacity var(--dur-identity) var(--ease);
+}
+
+.site-header.is-collapsed .header-full,
+.site-header.is-collapsed .header-nav,
+.site-header.is-collapsed [data-action='toggle-lang'],
+.site-header.is-collapsed [data-action='toggle-theme'],
+.site-header.is-collapsed [data-action='toggle-hc'] {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* --- Tarjetas de proyecto ---
+   Grid fluido mobile-first (R25): auto-fit + minmax con pista mínima limitada
+   al 100% del contenedor (nunca desborda en 320px ni con zoom 200%, WCAG 1.4.10).
+   En anchos de contenido grandes caben 2-3 columnas de forma natural, sin
+   media queries rígidas.
+   R11: las filas del grid se estiran (stretch por defecto) y cada tarjeta
+   ocupa el 100% de su celda → todas las tarjetas de una fila miden igual.
+   El resto de estilos de la tarjeta viven encapsulados en su Shadow DOM
+   (src/views/components/project-card.js). */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.card-grid > project-card {
+  height: 100%;
+}
+
+/* --- Filtros (R17–R19; colapsables en móvil, R42) ---
+   En móvil (<900px) se muestran como <details> cerrado por defecto;
+   en escritorio se abren. El comportamiento open/closed lo gestiona la vista. */
+.filters {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+
+.filters summary {
+  cursor: pointer;
+  font-weight: 500;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.filters-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.filters-body label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  /* Permite encoger en viewports estrechos o con zoom (320px, 200%). */
+  min-width: 0;
+  flex: 1 1 200px;
+  max-width: 100%;
+}
+
+.filters-body select {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  /* Fluido: nunca más ancho que su contenedor (R25, zoom 200%). */
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* --- Contador, estados, paginación --- */
+.results-counter {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* --- Estados: vacío global (R28), vacío por filtros (R29, R44), error (R27) ---
+   Cada estado tiene su propio diseño (DESIGN-001):
+   - Vacíos: bloque centrado con ilustración decorativa (aria-hidden), título
+     y descripción. El de filtros añade botón secundario "Limpiar filtros".
+   - Error: etiqueta de estado con icono + texto en color semántico `bad`
+     (DESIGN §4: el icono y el texto son obligatorios; el color nunca va solo). */
+.state {
+  padding: 32px 0;
+}
+
+.state-empty {
+  max-width: var(--max-reading);
+  margin-inline: auto;
+  padding: 48px 24px;
+  text-align: center;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+}
+
+.state-illustration {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.state-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.state-text {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.state-empty .state-text {
+  margin-bottom: 0;
+}
+
+.state-empty-filters .state-text {
+  margin-bottom: 24px;
+}
+
+.state-error {
+  /* La etiqueta de estado usa el semántico `bad` con icono (nunca solo color). */
+}
+
+.state-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  margin: 0 0 8px;
+  padding: 2px 12px;
+  border: 1px solid var(--bad);
+  border-radius: var(--radius-full);
+  color: var(--bad);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.state-icon {
+  flex-shrink: 0;
+}
+
+.state-error .state-text {
+  color: var(--ink-2);
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.pagination-status {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* --- Secciones y footer --- */
+.featured-section,
+.projects-section,
+[data-view] {
+  margin-block: var(--section-gap);
+}
+
+.now-list {
+  padding-left: 24px;
+}
+
+.now-list li {
+  margin-bottom: 12px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: var(--section-gap);
+}
+
+.footer-nav {
+  list-style: none;
+  margin: 0;
+  padding: 24px var(--gutter);
+  max-width: var(--max-content);
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.footer-nav a[aria-current='page'] {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* --- Vistas Sobre mí / Ahora (R6, R7) --- */
+[data-view] h1 {
+  margin: var(--section-gap) 0 24px;
+  font-size: clamp(32px, 5vw, 48px);
+}

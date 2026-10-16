@@ -1,0 +1,40 @@
+{
+  "proyectos": [
+    {
+      "id": "gestor-tareas",
+      "nombre": "Android task manager",
+      "descripcion": "App to organize assignment deadlines by subject, with reminders. Used by 12 classmates since March.",
+      "tecnologia": "Kotlin",
+      "imagen": "assets/project-01.jpg",
+      "enlace": "https://github.com/alex-ejemplo/gestor-tareas",
+      "fecha": "2026-05"
+    },
+    {
+      "id": "tienda-discos",
+      "nombre": "Record store",
+      "descripcion": "Catalogue with a shopping cart for a friend's shop that used to sell through Instagram. 120 records catalogued.",
+      "tecnologia": "JavaScript",
+      "imagen": "assets/project-02.jpg",
+      "enlace": "https://github.com/alex-ejemplo/tienda-discos",
+      "fecha": "2026-01"
+    },
+    {
+      "id": "api-reservas",
+      "nombre": "Booking API",
+      "descripcion": "REST API to book sports courts, with authentication and documentation.",
+      "tecnologia": "Java",
+      "imagen": "assets/project-03.jpg",
+      "enlace": "https://github.com/alex-ejemplo/api-reservas",
+      "fecha": "2026-03"
+    },
+    {
+      "id": "recetas",
+      "nombre": "Recipe app",
+      "descripcion": "Recipe book with a shared shopping list, synced across several phones.",
+      "tecnologia": "Flutter",
+      "imagen": "assets/project-04.jpg",
+      "enlace": "https://github.com/alex-ejemplo/recetas",
+      "fecha": "2025-06"
+    }
+  ]
+}

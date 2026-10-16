@@ -1,0 +1,141 @@
+/* base.css — reset suave, landmarks, foco visible, skip-link, reduced-motion. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* R25: sin scroll horizontal en ningún viewport 320px–1920px (ni con zoom 200%).
+   Guarda defensiva: si algo desbordara, recorta en lugar de generar scroll. */
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 28px;
+  transition: background-color var(--dur-color) var(--ease), color var(--dur-color) var(--ease);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Los hijos de grid/flex pueden encoger por debajo de su contenido:
+   evita desbordes horizontales con textos o URLs largas (R25, zoom 200%). */
+main > *,
+.header-inner > *,
+.filters-body > *,
+.card-grid > * {
+  min-width: 0;
+}
+
+/* Texto largo sin espacios (URLs, correos) rompe en lugar de desbordar. */
+a,
+p,
+li,
+span {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+}
+
+button,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Foco de teclado siempre visible: 2px acento, separado 3px (DESIGN §6) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Enlace de salto al contenido: primer elemento enfocable (DESIGN §6) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--gutter);
+  z-index: 100;
+  padding: 8px 16px;
+  background: var(--btn);
+  color: var(--btn-ink);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  top: 8px;
+}
+
+main {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.reading-width {
+  max-width: var(--max-reading);
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--ink-2);
+}
+
+/* prefers-reduced-motion: no se ejecuta ninguna animación (R34, DESIGN §5) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utilidad solo para lectores de pantalla (anuncios aria-live) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

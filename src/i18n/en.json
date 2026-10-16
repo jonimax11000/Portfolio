@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "sobreMi": "About me",
+    "ahora": "Now"
+  },
+  "header": {
+    "contactar": "Contact",
+    "cambiarIdioma": "Español",
+    "temaClaro": "Light mode",
+    "temaOscuro": "Dark mode",
+    "altoContraste": "High contrast"
+  },
+  "portfolio": {
+    "destacados": "Featured",
+    "proyectos": "Projects",
+    "filtros": "Filters",
+    "tecnologia": "Technology",
+    "anio": "Year",
+    "todas": "All",
+    "todos": "All",
+    "orden": "Sort",
+    "ordenDesc": "Newest first",
+    "ordenAsc": "Oldest first",
+    "contador": "{n} projects",
+    "contadorSingular": "{n} project",
+    "limpiarFiltros": "Clear filters",
+    "vacioGlobalTitulo": "No projects yet",
+    "vacioGlobal": "There are no projects to show yet.",
+    "vacioFiltrosTitulo": "No results",
+    "vacioFiltros": "No projects match the selected filters.",
+    "errorTitulo": "Failed to load",
+    "error": "Data could not be loaded. Please try again later."
+  },
+  "tarjeta": {
+    "destacado": "Featured",
+    "noDisponible": "Not available",
+    "verRepositorio": "View repository",
+    "expandir": "Expand card",
+    "colapsar": "Collapse card",
+    "expandida": "{nombre} card expanded",
+    "colapsada": "{nombre} card collapsed"
+  },
+  "contacto": {
+    "asunto": "Contact from the portfolio"
+  },
+  "footer": {
+    "navegacion": "Navigation"
+  },
+  "paginacion": {
+    "anterior": "Previous",
+    "siguiente": "Next",
+    "pagina": "Page {n} of {total}"
+  }
+}
