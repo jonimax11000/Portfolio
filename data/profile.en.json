@@ -1,0 +1,28 @@
+{
+  "perfil": {
+    "nombre": "Alex",
+    "titular": "Multiplatform developer in training · 2nd year of DAM",
+    "claim": "I build Android apps and APIs that people actually use. Looking for an internship for 2027.",
+    "presentacion": "Second-year DAM student in Valencia. Kotlin, Spring Boot and whatever it takes to ship the project; currently learning to work with AI agents from specifications.",
+    "sobreMi": [
+      "I'm in my second year of DAM and I enjoy solving problems more than arguing about frameworks. I've built Android apps, a Spring Boot API and several websites, almost always for specific people: my class, a friend's shop, the school.",
+      "I'm now learning to work with AI agents from specifications: writing down what I want properly before anyone, human or machine, writes a line of code. I'm looking for an internship where I can learn from a real team."
+    ],
+    "disponibilidad": "Available for internships · March 2027",
+    "ubicacion": "Valencia",
+    "foto": "assets/profile.jpg",
+    "ahora": [
+      "Finishing the 2nd year of DAM at IES Ejemplo (Valencia)",
+      "Looking for an internship (FCT) starting March 2027",
+      "Learning to work with AI agents from specifications"
+    ],
+    "stack": {
+      "Languages": ["Kotlin", "Java", "Python", "JavaScript", "Dart"],
+      "Frameworks": ["Android", "Spring Boot", "Flutter"],
+      "Tools": ["Git", "Docker", "Firebase", "MySQL", "SQLite"]
+    },
+    "correo": "alex@ejemplo.dev",
+    "github": "https://github.com/alex-ejemplo",
+    "linkedin": "https://www.linkedin.com/in/alex-ejemplo"
+  }
+}

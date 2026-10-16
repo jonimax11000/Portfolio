@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-hc="false">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <script>
+      /* Aplica el tema persistido antes del primer paint (R39): evita el flash
+         de tema claro cuando el usuario tiene guardado oscuro y/o HC.
+         Réplica mínima de StorageService (claves portfolio:theme / portfolio:hc);
+         tolera localStorage no disponible. */
+      try {
+        var theme = localStorage.getItem('portfolio:theme');
+        var hc = localStorage.getItem('portfolio:hc');
+        var root = document.documentElement;
+        if (theme === 'dark' || theme === 'light') root.setAttribute('data-theme', theme);
+        if (hc === 'true' || hc === 'false') root.setAttribute('data-hc', hc);
+      } catch (e) { /* sin persistencia: valores por defecto del atributo */ }
+    </script>
+    <!-- R33: los JSON de datos del idioma activo (persistido en localStorage)
+         empiezan a descargarse antes de que el bundle JS se evalúe. En 3G
+         esto adelanta el contenido ~1 RTT. Solo precargamos el idioma activo:
+         precargar los 4 JSON malgastaría el ancho de banda que medimos. -->
+    <script>
+      try {
+        var lang = localStorage.getItem('portfolio:lang') === 'en' ? 'en' : 'es';
+        var suffix = lang === 'en' ? '.en.json' : '.json';
+        ['profile', 'projects'].forEach(function (name) {
+          var link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'fetch';
+          link.type = 'application/json';
+          link.crossOrigin = 'anonymous';
+          link.href = 'data/' + name + suffix;
+          document.head.appendChild(link);
+        });
+      } catch (e) { /* sin persistencia: main.js carga el idioma por defecto */ }
+    </script>
+    <script type="module" crossorigin src="./assets/index-CuOy_0-p.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/style-BDB4VQnW.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <app-header></app-header>
+
+    <main id="main" tabindex="-1">
+      <section id="view-portfolio" data-view="portfolio" aria-label="Portfolio"></section>
+      <section id="view-sobre-mi" data-view="sobre-mi" aria-label="Sobre mí" hidden></section>
+      <section id="view-ahora" data-view="ahora" aria-label="Ahora" hidden></section>
+    </main>
+
+    <app-footer></app-footer>
+
+  </body>
+</html>

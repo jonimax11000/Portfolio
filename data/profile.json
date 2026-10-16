@@ -1,0 +1,28 @@
+{
+  "perfil": {
+    "nombre": "Alex",
+    "titular": "Desarrollador multiplataforma en formación · 2.º de DAM",
+    "claim": "Construyo apps Android y APIs que la gente usa de verdad. Busco prácticas para 2027.",
+    "presentacion": "Segundo de DAM en Valencia. Kotlin, Spring Boot y lo que haga falta para que el proyecto salga; ahora aprendo a trabajar con agentes de IA a partir de especificaciones.",
+    "sobreMi": [
+      "Estudio segundo de DAM y me gusta más resolver problemas que discutir de frameworks. He hecho apps Android, una API en Spring Boot y varias webs, casi siempre para gente concreta: mi clase, la tienda de un amigo, el instituto.",
+      "Ahora estoy aprendiendo a trabajar con agentes de IA a partir de especificaciones: escribir bien lo que quiero antes de que nadie, humano o máquina, escriba una línea de código. Busco prácticas donde pueda aprender de un equipo de verdad."
+    ],
+    "disponibilidad": "Disponible para prácticas · marzo 2027",
+    "ubicacion": "Valencia",
+    "foto": "assets/profile.jpg",
+    "ahora": [
+      "Terminando 2.º de DAM en el IES Ejemplo (Valencia)",
+      "Buscando prácticas (FCT) desde marzo de 2027",
+      "Aprendiendo a trabajar con agentes de IA a partir de especificaciones"
+    ],
+    "stack": {
+      "Lenguajes": ["Kotlin", "Java", "Python", "JavaScript", "Dart"],
+      "Frameworks": ["Android", "Spring Boot", "Flutter"],
+      "Herramientas": ["Git", "Docker", "Firebase", "MySQL", "SQLite"]
+    },
+    "correo": "alex@ejemplo.dev",
+    "github": "https://github.com/alex-ejemplo",
+    "linkedin": "https://www.linkedin.com/in/alex-ejemplo"
+  }
+}
